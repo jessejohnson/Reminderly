@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
@@ -37,6 +38,7 @@ fun ContentCard(item: ContentItem) {
 
 @Composable
 fun HeaderImage(item: ContentItem) {
+    if (item.imageUrl.isEmpty()) return
     AsyncImage(
         model = item.imageUrl,
         placeholder = painterResource(id = R.drawable.ic_placeholder),
@@ -52,14 +54,22 @@ fun HeaderImage(item: ContentItem) {
 @Composable
 fun Body(item: ContentItem) {
     Column(modifier = Modifier.padding(8.dp)) {
-        Text(
-            text = item.title,
-            style = MaterialTheme.typography.headlineSmall
-        )
-        Text(
-            text = item.text,
-            style = MaterialTheme.typography.bodyMedium
-        )
+        if (item.title.isNotEmpty()) {
+            Text(
+                text = item.title,
+                style = MaterialTheme.typography.titleMedium,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
+            )
+        }
+        if (item.text.isNotEmpty()) {
+            Text(
+                text = item.text,
+                style = MaterialTheme.typography.bodyMedium,
+                maxLines = 5,
+                overflow = TextOverflow.Ellipsis
+            )
+        }
     }
 }
 
