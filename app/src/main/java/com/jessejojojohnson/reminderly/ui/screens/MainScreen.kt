@@ -16,8 +16,8 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.jessejojojohnson.reminderly.data.AppDatabase
 import com.jessejojojohnson.reminderly.data.ContentDao
 import com.jessejojojohnson.reminderly.data.Source
-import com.jessejojojohnson.reminderly.models.ContentItem
-import com.jessejojojohnson.reminderly.models.ContentSource
+import com.jessejojojohnson.reminderly.ui.models.ContentItem
+import com.jessejojojohnson.reminderly.ui.models.ContentSource
 import com.jessejojojohnson.reminderly.ui.components.ContentCard
 import kotlinx.coroutines.flow.map
 import org.koin.java.KoinJavaComponent.inject

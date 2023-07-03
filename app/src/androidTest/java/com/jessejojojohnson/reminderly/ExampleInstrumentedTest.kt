@@ -8,8 +8,8 @@ import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.printToLog
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.jessejojojohnson.reminderly.models.ContentItem
-import com.jessejojojohnson.reminderly.models.ContentSource
+import com.jessejojojohnson.reminderly.ui.models.ContentItem
+import com.jessejojojohnson.reminderly.ui.models.ContentSource
 import com.jessejojojohnson.reminderly.ui.components.ContentCard
 import com.jessejojojohnson.reminderly.ui.screens.MainScreen
 import com.jessejojojohnson.reminderly.ui.theme.ReminderlyTheme

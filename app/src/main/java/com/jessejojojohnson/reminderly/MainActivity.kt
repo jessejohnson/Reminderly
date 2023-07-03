@@ -10,12 +10,15 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.jessejojojohnson.reminderly.data.GetHackerNewsContentWorker
+import com.jessejojojohnson.reminderly.domain.ReminderNotificationWorker
 import com.jessejojojohnson.reminderly.ui.screens.MainScreen
 import com.jessejojojohnson.reminderly.ui.theme.ReminderlyTheme
 import org.koin.android.ext.android.inject
+import java.util.concurrent.TimeUnit
 
 class MainActivity : ComponentActivity() {
 
@@ -33,8 +36,14 @@ class MainActivity : ComponentActivity() {
                 ) {
                     MainScreen(modifier = Modifier.fillMaxSize())
                     LaunchedEffect(key1 = Unit) {
-                        workManager.enqueue(
-                            OneTimeWorkRequestBuilder<GetHackerNewsContentWorker>().build()
+                        val reminderWorkRequest =
+                            OneTimeWorkRequestBuilder<ReminderNotificationWorker>()
+                                .setInitialDelay(10, TimeUnit.SECONDS)
+                                .build()
+                        workManager.enqueueUniqueWork(
+                            ReminderNotificationWorker.TAG,
+                            ExistingWorkPolicy.KEEP,
+                            reminderWorkRequest
                         )
                     }
                 }

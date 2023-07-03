@@ -16,8 +16,8 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.jessejojojohnson.reminderly.R
-import com.jessejojojohnson.reminderly.models.ContentItem
-import com.jessejojojohnson.reminderly.models.ContentSource
+import com.jessejojojohnson.reminderly.ui.models.ContentItem
+import com.jessejojojohnson.reminderly.ui.models.ContentSource
 import com.jessejojojohnson.reminderly.ui.theme.ReminderlyTheme
 import java.util.*
 

@@ -1,4 +1,4 @@
-package com.jessejojojohnson.reminderly.models
+package com.jessejojojohnson.reminderly.ui.models
 
 import com.jessejojojohnson.reminderly.R
 
